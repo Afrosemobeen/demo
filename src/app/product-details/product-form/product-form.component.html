@@ -1,0 +1,141 @@
+<div class="product-form" *ngIf="productForm && appConstant">
+  <form
+    novalidate
+    (ngSubmit)="onSubmit(productForm.value, productForm.valid)"
+    [formGroup]="productForm"
+  >
+    <div class="grid">
+      <div class="col-12 md:col-6 lg:col-3 sm:flex-nowrap">
+        <div class="filling">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label class="rang">Title*</mat-label>
+            <br />
+            <input
+              type="text"
+              matInput
+              formControlName="{{ appConstant.forms.product.title }}"
+              placeholder="Title"
+            /><br />
+            <mat-error *ngIf="productForm.get('title').hasError('required')">
+              This field is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="col-12 md:col-6 lg:col-3">
+        <div class="filling">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label class="rang">Description*</mat-label>
+            <br />
+            <textarea
+              type="text"
+              matInput
+              formControlName="{{ appConstant.forms.product.description }}"
+              placeholder="Description"
+            ></textarea>
+            <br />
+            <mat-error
+              *ngIf="productForm.get('description').hasError('required')"
+            >
+              This field is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="col-12 md:col-6 lg:col-3">
+        <div class="filling">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label class="rang">Category*</mat-label>
+            <br />
+            <input
+              type="text"
+              matInput
+              formControlName="{{ appConstant.forms.product.category }}"
+              placeholder="Category"
+            /><br />
+            <mat-error *ngIf="productForm.get('category').hasError('required')">
+              This field is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="col-12 md:col-6 lg:col-3">
+        <div class="filling">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label class="rang">Price*</mat-label>
+            <br />
+            <input
+              type="text"
+              matInput
+              formControlName="{{ appConstant.forms.product.price }}"
+              placeholder="Price"
+            /><br />
+            <mat-error *ngIf="productForm.get('price').hasError('required')">
+              This field is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="col-12 md:col-6 lg:col-3">
+        <div class="filling">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label class="rang">Stock*</mat-label>
+            <br />
+            <input
+              type="number"
+              matInput
+              formControlName="{{ appConstant.forms.product.stock }}"
+              placeholder="Stock"
+            /><br />
+            <mat-error *ngIf="productForm.get('stock').hasError('required')">
+              This field is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="col-12 md:col-6 lg:col-3">
+        <div class="filling">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label class="rang">Brand*</mat-label>
+            <br />
+            <input
+              type="text"
+              matInput
+              formControlName="{{ appConstant.forms.product.brand }}"
+              placeholder="Brand"
+            /><br />
+            <mat-error *ngIf="productForm.get('brand').hasError('required')">
+              This field is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="col-12 md:col-6 lg:col-3">
+        <div class="filling">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label class="rang">Rating*</mat-label>
+            <br />
+            <input
+              type="number"
+              matInput
+              formControlName="{{ appConstant.forms.product.rating }}"
+              placeholder="Rating"
+            />
+            <br />
+            <mat-error *ngIf="productForm.get('rating').hasError('required')">
+              This field is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="productForm.get('rating').hasError('max')">
+              The maximum value will be <strong>{{ maxValue }}</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <div class="f-center">
+      <button mat-raised-button type="submit" [disabled]="productForm.invalid">
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
